@@ -7,6 +7,20 @@ public class LevelZoneShelter : LevelZone
     [SerializeField] private TableZone[] _tableZones;
     [SerializeField] private ItemDispenser[] _itemDispensers;
 
+    public override void Initialise()
+    {
+        base.Initialise();
+        
+        if (_isOpened || _isPermanentOpened)
+        {
+            foreach (var tableZone in _tableZones)
+                tableZone.Initialize(this);
+            
+            foreach (var itemDispenser in _itemDispensers)
+                itemDispenser.Initialise();
+        }
+    }
+
     protected override void ActivateZone()
     {
         base.ActivateZone();
@@ -94,7 +108,7 @@ public class LevelZoneShelter : LevelZone
 
     #region Load/Save
 
-    public void Load(LevelZoneShelterSave levelZoneShelterSave)
+    public void LoadDataFromSave(LevelZoneShelterSave levelZoneShelterSave)
     {
         _placedCurrencyAmount = levelZoneShelterSave.PlacedCurrencyAmount;
         _isOpened = levelZoneShelterSave.IsOpened;
@@ -110,7 +124,7 @@ public class LevelZoneShelter : LevelZone
         }
     }
 
-    public LevelZoneShelterSave Save()
+    public LevelZoneShelterSave GetSaveData()
     {
         TableZone.SaveData[] tableZonesSave = new TableZone.SaveData[_tableZones.Length];
         for (int i = 0; i < tableZonesSave.Length; i++)

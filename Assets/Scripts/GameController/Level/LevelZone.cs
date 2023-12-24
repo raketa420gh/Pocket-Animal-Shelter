@@ -22,6 +22,7 @@ public class LevelZone : MonoBehaviour, IPurchaseObject
     [SerializeField] Transform _maskCenterTransform;
     protected  ISaveService _saveService;
     protected  IFactory _factory;
+    protected NavMeshController _navMeshController;
     protected  bool _isOpened;
     protected  bool _isActivated;
     protected  int _placedCurrencyAmount;
@@ -36,10 +37,11 @@ public class LevelZone : MonoBehaviour, IPurchaseObject
     public int PlacedCurrencyAmount => _placedCurrencyAmount;
     
     [Inject]
-    public void Construct(ISaveService saveService, IFactory factory)
+    public void Construct(ISaveService saveService, IFactory factory, NavMeshController navMeshController)
     {
         _saveService = saveService;
         _factory = factory;
+        _navMeshController = navMeshController;
     }
     
     public virtual void Initialise()
@@ -110,6 +112,8 @@ public class LevelZone : MonoBehaviour, IPurchaseObject
         }
         
         Initialise();
+        
+        _navMeshController.UpdateNavMesh();
     }
 
     private void CreatePurchaseAreasForLinkedZones()
@@ -161,17 +165,5 @@ public class LevelZone : MonoBehaviour, IPurchaseObject
 
         _disabledEnvironmentObject.SetActive(true);
         _activeEnvironmentObject.SetActive(false);
-    }
-
-    public LevelZoneSave GetSaveData()
-    {
-        return new LevelZoneSave(_id, _placedCurrencyAmount, _isOpened);
-    }
-
-    public void LoadDataFromSave(LevelZoneSave levelZoneSave)
-    {
-        _placedCurrencyAmount = levelZoneSave.PlacedCurrencyAmount;
-        _isOpened = levelZoneSave.IsOpened;
-        _id = levelZoneSave.ID;
     }
 }

@@ -68,6 +68,8 @@ public class ItemDispenser : MonoBehaviour
         _lockGameObject.SetActive(!_isUnlocked);
         
         //Disable ui indicators
+        
+        SetUnlockState(true);
     }
 
     public void Deinitialize()

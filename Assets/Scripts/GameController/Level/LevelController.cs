@@ -1,10 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
 public class LevelController : MonoBehaviour
 {
-    [SerializeField] private LevelZone[] _levelZones;
+    [SerializeField] private LevelZoneLobby _lobbyZone;
     [SerializeField] private LevelZoneShelter _shelterZone;
+    [SerializeField] private LevelZoneWithdraw _withdrawZone;
+    [SerializeField] private LevelZone _otherZone;
+    private List<LevelZone> _allLevelZones = new List<LevelZone>();
     private ISaveService _saveService;
     private NavMeshController _navMeshController;
 
@@ -17,13 +21,16 @@ public class LevelController : MonoBehaviour
     
     public void InitializeLevel()
     {
+        _allLevelZones.Add(_lobbyZone);
+        _allLevelZones.Add(_shelterZone);
+        _allLevelZones.Add(_withdrawZone);
+        _allLevelZones.Add(_otherZone);
+        
         var levelSave = _saveService.GetSaveObject<LevelSave>("level") ?? new LevelSave();
-        LoadLevelSave(levelSave);
+        LoadLevelDataFromSave(levelSave);
 
-        for (int i = 0; i < _levelZones.Length; i++)
+        foreach (LevelZone levelZone in _allLevelZones)
         {
-            LevelZone levelZone = _levelZones[i];
-            //levelZone.Load(levelSave.ZoneSaves[i]);
             levelZone.Initialise();
             levelZone.Lock();
         }
@@ -33,32 +40,22 @@ public class LevelController : MonoBehaviour
         _navMeshController.UpdateNavMesh();
     }
 
-    private void LoadLevelSave(LevelSave levelSave)
+    private void LoadLevelDataFromSave(LevelSave levelSave)
     {
         if (levelSave == null)
         {
             Debug.Log($"LEVEL SAVE NULL");
             return;
         }
+
+        levelSave?.LinkZoneShelter(_shelterZone);
         
-        if (!levelSave.ZoneSaves.IsNullOrEmpty())
+        if (levelSave.ZoneShelterSave != null)
         {
-            foreach (LevelZoneSave levelZoneSave in levelSave.ZoneSaves)
-            {
-                foreach (LevelZone levelZone in _levelZones)
-                {
-                    if (levelZone.ID == levelZoneSave.ID)
-                    {
-                        levelZone.LoadDataFromSave(levelZoneSave);
-                        break;
-                    }
-                }
-            }
+            _shelterZone.LoadDataFromSave(levelSave.ZoneShelterSave);
+            
+            Debug.Log($"Level shelter zone save load  info. {levelSave}, " +
+                      $"Zone shelter save = {levelSave.ZoneShelterSave}");
         }
-
-        levelSave?.LinkZones(_levelZones);
-
-        Debug.Log($"Level save load  info. {levelSave}, ID = {levelSave.CurrentLevelID}, " +
-                  $"Zone saves = {levelSave.ZoneSaves}");
     }
 }

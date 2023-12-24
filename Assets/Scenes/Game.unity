@@ -10001,13 +10001,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912b26dbb14b455498fc2e1d714e09f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelZones:
-  - {fileID: 1137436103}
-  - {fileID: 1351244202}
-  - {fileID: 490464799}
-  - {fileID: 72113159}
-  _shelterZone: {fileID: 1351244202}
   _lobbyZone: {fileID: 1137436103}
+  _shelterZone: {fileID: 1351244202}
+  _withdrawZone: {fileID: 490464799}
+  _otherZone: {fileID: 72113159}
 --- !u!4 &1065315454
 Transform:
   m_ObjectHideFlags: 0
@@ -17806,7 +17803,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 4, y: 0.1, z: 5.67}
+  m_Size: {x: 4, y: 0.1, z: 5.7}
   m_Center: {x: 0, y: 0, z: -3.08}
 --- !u!1001 &1967080286
 PrefabInstance:
