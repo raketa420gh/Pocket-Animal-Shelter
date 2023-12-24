@@ -4,7 +4,7 @@ public class UnitAnimator : MonoBehaviour, IUnitAnimator
 {
     [SerializeField] private Animator _animator;
     private readonly int _runHash = Animator.StringToHash("Run");
-    private readonly int _movementMultilierHash = Animator.StringToHash("Movement Multiplier");
+    private readonly int _movementMultiplierHash = Animator.StringToHash("Movement Multiplier");
 
     public void SetRunAnimation(bool b)
     {
@@ -13,11 +13,11 @@ public class UnitAnimator : MonoBehaviour, IUnitAnimator
 
     public void SetMoveSpeedParameter(float multiplier)
     {
-        _animator.SetFloat(_movementMultilierHash, multiplier);
+        _animator.SetFloat(_movementMultiplierHash, multiplier);
     }
 
     public void SetLayerWeight(int handLayerHash, float value)
     {
-        throw new System.NotImplementedException();
+        _animator.SetLayerWeight(handLayerHash, value);
     }
 }

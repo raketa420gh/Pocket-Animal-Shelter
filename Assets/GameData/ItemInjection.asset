@@ -15,4 +15,4 @@ MonoBehaviour:
   itemType: 1
   icon: {fileID: 21300000, guid: b3c4b0825aad5c04384b5c4c70d436d3, type: 3}
   model: {fileID: 5452293421210571419, guid: e8d8689830e26c24fb8919820b3c3a64, type: 3}
-  modelHeight: 0.2
+  modelHeight: 0.1

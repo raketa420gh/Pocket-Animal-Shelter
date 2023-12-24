@@ -5,7 +5,7 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private UnitAnimator _animator;
     
     private bool _isHandEnabled;
-    private int _handLayerHash;
+    private int _handLayerHash = 1;
 
     public UnitAnimator Animator => _animator;
     

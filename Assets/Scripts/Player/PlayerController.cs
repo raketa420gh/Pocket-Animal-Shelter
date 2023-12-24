@@ -25,9 +25,11 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         UpdateInputMovement();
-        
+
         if (_itemCarrier)
+        {
             _itemCarrier.RecalculateItemsPositions();
+        }
     }
 
     public void Initialize(ICurrenciesController currenciesController, IItemController itemController)
@@ -35,6 +37,13 @@ public class PlayerController : MonoBehaviour
         _currenciesController = currenciesController;
         _itemController = itemController;
         _itemCarrier.Initialize(_itemController);
+
+        _itemCarrier.OnChangeCarryingState += HandleChangeCarryingState;
+    }
+
+    public void Destroy()
+    {
+        _itemCarrier.OnChangeCarryingState -= HandleChangeCarryingState;
     }
 
     public void SetPurchaseObject(IPurchaseObject purchaseObject)
@@ -117,7 +126,8 @@ public class PlayerController : MonoBehaviour
         _activePurchaseObject.OnPurchaseCompleted();
         ResetPurchaseObject(_activePurchaseObject);
     }
-    
+
+
     /*
 
     // Carrying
@@ -754,7 +764,7 @@ public class PlayerController : MonoBehaviour
     {
         return _playerZone;
     }*/
-    
+
     private void UpdateInputMovement()
     {
         if (_input.Axis.sqrMagnitude > 0.1f)
@@ -800,5 +810,13 @@ public class PlayerController : MonoBehaviour
                 _playerView.Animator.SetRunAnimation(false);
             }
         }
+    }
+
+    private void HandleChangeCarryingState(bool isCarrying)
+    {
+        if (isCarrying)
+            _playerView.EnableHands();
+        else
+            _playerView.DisableHands();
     }
 }

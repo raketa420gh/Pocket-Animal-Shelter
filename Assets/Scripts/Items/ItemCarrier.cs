@@ -14,6 +14,8 @@ public class ItemCarrier : MonoBehaviour, IItemCarrier
     private bool _isCarrying;
     
     public Transform StorageTransform => _storageTransform;
+    
+    public event Action<bool> OnChangeCarryingState;
 
     public void Initialize(IItemController itemController)
     {
@@ -47,11 +49,11 @@ public class ItemCarrier : MonoBehaviour, IItemCarrier
 
         _carryingItemsAmount++;
         _carryingItemsList.Add(storageCase);
-
-        _isCarrying = true;
-
         _carryingItemsHeight += item.ModelHeight;
-
+        _isCarrying = true;
+        
+        OnChangeCarryingState?.Invoke(_isCarrying);
+        
         return storageCase;
     }
 
@@ -72,6 +74,8 @@ public class ItemCarrier : MonoBehaviour, IItemCarrier
                     {
                         _carryingItemsHeight = 0;
                         _isCarrying = false;
+                        
+                        OnChangeCarryingState?.Invoke(_isCarrying);
                     }
                     else
                     {
