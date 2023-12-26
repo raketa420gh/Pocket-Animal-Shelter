@@ -3751,6 +3751,16 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4c45a38f6ebf89a428037459955027c2, type: 3}
   m_PrefabInstance: {fileID: 406507176}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &406507178 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 4c45a38f6ebf89a428037459955027c2, type: 3}
+  m_PrefabInstance: {fileID: 406507176}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &406507179 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -7420795987223153464, guid: 4c45a38f6ebf89a428037459955027c2, type: 3}
+  m_PrefabInstance: {fileID: 406507176}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &424314866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6695,7 +6705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29479a15933c415b9a1f82a97ea171c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  _animator: {fileID: 406507178}
 --- !u!1 &727874512
 GameObject:
   m_ObjectHideFlags: 0
@@ -6838,7 +6848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f296c095bbec4bfca53a4eca23735ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _storageTransform: {fileID: 0}
+  _storageTransform: {fileID: 406507179}
 --- !u!1001 &728074624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7277,6 +7287,53 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8028fee49d3bd9d49a22dabbe92cc968, type: 3}
   m_PrefabInstance: {fileID: 746998145}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &748672953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748672955}
+  - component: {fileID: 748672954}
+  m_Layer: 0
+  m_Name: VisitorsPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &748672954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748672953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f889a0dda0544c19832108512708bed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolCount: 10
+  _isAutoExpand: 1
+  _prefab: {fileID: 3148204051290790043, guid: 09bda68f90138654f962e08db4f0c32a, type: 3}
+--- !u!4 &748672955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748672953}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 955208778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &749959619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8981,6 +9038,55 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8028fee49d3bd9d49a22dabbe92cc968, type: 3}
   m_PrefabInstance: {fileID: 951356311}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &955208776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955208778}
+  - component: {fileID: 955208777}
+  m_Layer: 0
+  m_Name: CharactersFactory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &955208777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955208776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40d55b40af340a69fb6ef45914f52c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animalsPool: {fileID: 1348442761}
+  _visitorsPool: {fileID: 748672954}
+--- !u!4 &955208778
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955208776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1348442760}
+  - {fileID: 748672955}
+  - {fileID: 1961906254}
+  m_Father: {fileID: 1478592836}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &982074342
 GameObject:
   m_ObjectHideFlags: 0
@@ -12329,6 +12435,54 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6, y: 0.1, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1348442759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1348442760}
+  - component: {fileID: 1348442761}
+  m_Layer: 0
+  m_Name: AnimalsPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1348442760
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348442759}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 955208778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1348442761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348442759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f83a527bda74f629e59f487c19e2b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _poolCount: 10
+  _isAutoExpand: 1
+  _animalPrefabs:
+  - {fileID: 2573520810245627408, guid: 5550acff5d3a567469006269ab70c73d, type: 3}
 --- !u!1 &1349361825
 GameObject:
   m_ObjectHideFlags: 0
@@ -13562,6 +13716,7 @@ Transform:
   - {fileID: 1232602244}
   - {fileID: 583407186}
   - {fileID: 656423897}
+  - {fileID: 955208778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1478592837
@@ -13580,6 +13735,7 @@ MonoBehaviour:
   _purchaseAreaFactory: {fileID: 1232602245}
   _itemFactory: {fileID: 583407187}
   _storageFactory: {fileID: 656423896}
+  _charactersFactory: {fileID: 955208777}
 --- !u!1001 &1484098558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17359,6 +17515,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4, y: 0.1, z: 5.7}
   m_Center: {x: 0, y: 0, z: -3.08}
+--- !u!1 &1961906253
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1961906254}
+  m_Layer: 0
+  m_Name: NursePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1961906254
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961906253}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 955208778}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1967080286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20129,12 +20316,12 @@ SceneRoots:
   - {fileID: 58526295}
   - {fileID: 156893190}
   - {fileID: 2019354246}
-  - {fileID: 1478592836}
   - {fileID: 1115809602}
   - {fileID: 481887826}
   - {fileID: 530738773}
   - {fileID: 1793165766}
   - {fileID: 476555291}
+  - {fileID: 1478592836}
   - {fileID: 1065315454}
   - {fileID: 727874513}
   - {fileID: 1281967391}
