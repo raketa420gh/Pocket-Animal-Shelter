@@ -42,7 +42,7 @@ public class GameController : MonoBehaviour
         _factory.Initialize();
         _currenciesController.Initialise(_saveService);
         _itemController.Initialise();
-        _playerController.Initialize(_currenciesController, _itemController);
+        _playerController.Initialize(_factory, _currenciesController, _itemController);
         _levelController.InitializeLevel();
         
         Debug.Log("Game loop initialized");

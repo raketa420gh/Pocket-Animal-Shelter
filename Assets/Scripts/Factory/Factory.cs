@@ -19,5 +19,6 @@ public class Factory : MonoBehaviour, IFactory
         _uiFactory.Initialize();
         _purchaseAreaFactory.Initialize();
         _storageFactory.Initialize();
+        _charactersFactory.Initialize(this);
     }
 }

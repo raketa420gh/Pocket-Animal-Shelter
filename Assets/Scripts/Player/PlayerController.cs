@@ -32,11 +32,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Initialize(ICurrenciesController currenciesController, IItemController itemController)
+    public void Initialize(IFactory factory, ICurrenciesController currenciesController, IItemController itemController)
     {
         _currenciesController = currenciesController;
         _itemController = itemController;
-        _itemCarrier.Initialize(_itemController);
+        _itemCarrier.Initialize(factory, _itemController);
 
         _itemCarrier.OnChangeCarryingState += HandleChangeCarryingState;
     }
@@ -129,12 +129,6 @@ public class PlayerController : MonoBehaviour
 
 
     /*
-
-    // Carrying
-    private int _maxAnimalsAmount;
-    private bool _isAnimalCarrying;
-    private AnimalBehaviour _carryingAnimal;
-    public AnimalBehaviour AnimalBehaviour => _carryingAnimal;
     
     private static float maxTextLastTime;
 

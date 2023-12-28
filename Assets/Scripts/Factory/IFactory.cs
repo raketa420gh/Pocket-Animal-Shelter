@@ -4,6 +4,7 @@ public interface IFactory
     PurchaseAreaFactory PurchaseArea { get; }
     ItemFactory ItemFactory { get; }
     StorageFactory StorageFactory { get; }
+    CharactersFactory CharactersFactory { get; }
 
     void Initialize();
 }

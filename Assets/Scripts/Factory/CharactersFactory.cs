@@ -4,9 +4,11 @@ public class CharactersFactory : MonoBehaviour
 {
     [SerializeField] private AnimalsPool _animalsPool;
     [SerializeField] private VisitorsPool _visitorsPool;
+    private IFactory _factory;
     
-    public void Initialize()
+    public void Initialize(IFactory factory)
     {
+        _factory = factory;
         _animalsPool.Initialize();
         _visitorsPool.Initialize();
     }
@@ -23,7 +25,7 @@ public class CharactersFactory : MonoBehaviour
     public Visitor CreateVisitor(Vector3 position)
     {
         Visitor visitor = _visitorsPool.GetElement();
-        visitor.Initialize();
+        visitor.Initialize(_factory);
         visitor.transform.position = position;
 
         return visitor;

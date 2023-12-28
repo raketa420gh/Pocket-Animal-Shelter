@@ -5,20 +5,20 @@ using UnityEngine;
 
 public class ItemCarrier : MonoBehaviour, IItemCarrier
 {
-    [SerializeField] private Transform _storageTransform;
-    private IItemController _itemController;
+    [SerializeField] private Transform _storagePoint;
     private List<ItemStorageCase> _carryingItemsList;
     private int _maxItemsAmount = 3;
     private int _carryingItemsAmount;
     private float _carryingItemsHeight;
     private bool _isCarrying;
-    
-    public Transform StorageTransform => _storageTransform;
+    private IFactory _factory;
+    private IItemController _itemController;
     
     public event Action<bool> OnChangeCarryingState;
 
-    public void Initialize(IItemController itemController)
+    public void Initialize(IFactory factory, IItemController itemController)
     {
+        _factory = factory;
         _itemController = itemController;
         _carryingItemsList = new List<ItemStorageCase>();
         _carryingItemsAmount =_carryingItemsList.Count;
@@ -31,7 +31,7 @@ public class ItemCarrier : MonoBehaviour, IItemCarrier
         if (item == null)
             return null;
         
-        StorageSlot storageSlot = _itemController.CreateStorageSlot(_storageTransform);
+        StorageSlot storageSlot = _factory.StorageFactory.CreateStorageSlot(_storagePoint);
         storageSlot.transform.localPosition = new Vector3(0, _carryingItemsHeight, 0);
         storageSlot.transform.localRotation = Quaternion.identity;
         storageSlot.gameObject.SetActive(true);

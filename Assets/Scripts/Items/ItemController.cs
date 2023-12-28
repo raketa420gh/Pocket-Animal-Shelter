@@ -60,9 +60,4 @@ public class ItemController : MonoBehaviour, IItemController
 
         return itemObject.gameObject;
     }
-
-    public StorageSlot CreateStorageSlot(Transform parent)
-    {
-        return _factory.StorageFactory.CreateStorageSlot(parent);
-    }
 }
