@@ -11,7 +11,7 @@ public class AnimalCarrier : MonoBehaviour, IAnimalCarrier
     private int _maxAnimalsAmount = 1;
     private bool _isAnimalCarrying;
     private int _carryingAnimalsAmount;
-    private int _carryingAnimalsHeight;
+    private float _carryingAnimalsHeight;
     private IFactory _factory;
 
     public event Action<bool> OnChangeCarryingState;

@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
-    [SerializeField] private AnimalData.Type _type;
+    [SerializeField] private AnimalData _data;
     [SerializeField] private AnimalView _view;
-    [SerializeField] private AnimalCarrier _animalCarrier;
 
-    public AnimalCarrier AnimalCarrier => _animalCarrier;
-
-    public AnimalData.Type Type => _type;
+    public AnimalData.Type Type => _data.AnimalType;
+    public float StorageHeight => _data.StorageHeight;
 
     public void Initialize()
     {
@@ -30,8 +28,8 @@ public class Animal : MonoBehaviour
         
     }
 
-    public int GetCarryingHeight()
+    public float GetCarryingHeight()
     {
-        throw new System.NotImplementedException();
+        return StorageHeight;
     }
 }

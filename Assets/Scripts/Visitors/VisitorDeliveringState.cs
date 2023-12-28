@@ -17,17 +17,17 @@ public class VisitorDeliveringState : VisitorState
 
     public override void OnStateActivated()
     {
-        /*stateMachineController.ParentBehaviour.SetTargetPosition(stateMachineController.ParentBehaviour.PlacePosition, delegate
+        _stateMachineController.StateMachineParent.SetTargetPosition(_stateMachineController.StateMachineParent.PlacePosition, delegate
         {
-            stateMachineController.ParentBehaviour.StopMovement();
+            _stateMachineController.StateMachineParent.StopMovement();
 
-            stateMachineController.ParentBehaviour.PlaceAnimalOnGround();
+            /*_stateMachineController.StateMachineParent.PlaceAnimalOnGround();
 
             Tween.NextFrame(delegate
             {
-                stateMachineController.SetState(VisitorStateMachineController.State.Leaving);
-            });
-        });*/
+                _stateMachineController.SetState(VisitorStateMachineController.State.Leaving);
+            });*/
+        });
     }
 
     public override void OnStateDisabled()

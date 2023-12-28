@@ -46,7 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6a5e69f06b5d4744b4d349f72da91ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _data:
+    _animalType: 0
+    _storageHeight: 0.5
+    _rewardType: 0
+    _rewardAmount: 20
   _view: {fileID: 1740953336476285734}
 --- !u!114 &1740953336476285734
 MonoBehaviour:

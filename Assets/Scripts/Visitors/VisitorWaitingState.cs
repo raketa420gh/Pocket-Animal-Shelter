@@ -15,7 +15,7 @@ public class VisitorWaitingState : VisitorState
 
     public override void OnStateActivated()
     {
-        //_stateMachineController.StateMachineParent.StopMovement();
+        _stateMachineController.StateMachineParent.StopMovement();
     }
 
     public override void OnStateDisabled()

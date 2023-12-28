@@ -56,7 +56,7 @@ MonoBehaviour:
   - {fileID: 4300000, guid: 156edd7dfdb3bc6419903523611a8941, type: 2}
   - {fileID: 4300000, guid: da3e7281d38137d428146d4bec7faaa2, type: 2}
   - {fileID: 4300000, guid: 23968a068049907489700d35a4c48b70, type: 2}
-  _animator: {fileID: 0}
+  _animator: {fileID: 7049137963591210444}
 --- !u!114 &7049137963591210444
 MonoBehaviour:
   m_ObjectHideFlags: 0

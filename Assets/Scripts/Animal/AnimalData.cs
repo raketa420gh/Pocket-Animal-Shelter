@@ -4,14 +4,12 @@ using UnityEngine;
 public class AnimalData
 {
     [SerializeField] Type _animalType;
-    [SerializeField] GameObject _prefab;
     [SerializeField] float _storageHeight = 1;
     [Space]
     [SerializeField] Currency.Type _rewardType;
     [SerializeField] int _rewardAmount = 20;
 
     public Type AnimalType => _animalType;
-    public GameObject Prefab => _prefab;
     public float StorageHeight => _storageHeight;
     public int RewardAmount => _rewardAmount;
     public Currency.Type RewardType => _rewardType;
